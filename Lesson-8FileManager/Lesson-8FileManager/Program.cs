@@ -6,7 +6,7 @@ namespace Lesson_8FileManager
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
