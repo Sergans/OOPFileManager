@@ -10,30 +10,32 @@ namespace Lesson_8FileManager
     {
         static void Main(string[] args)
         {
-            // FileInfo a = new FileInfo();
-            // File.Delete(@"C:\Users\GANS\Desktop\Catalog\2.txt");
-            //Directory.Delete(@"C:\Users\GANS\Desktop\Catalog\Catalog4");
-            //IEnumerable<string> a=Directory.(@"C:\Users\GANS\Desktop\Catalog");
-            DirectoryInfo a = new DirectoryInfo(@"C:\Users\GANS\Desktop\Catalog");
-            foreach(var z in a.GetDirectories())
+            var a=Directory.EnumerateFileSystemEntries(@"C:\Users\GANS\Desktop\Catalog\Catalog4");
+            var Content = new Content();
+            foreach(var s in a)
+            {  
+                Content.ListContentModel.Add(new ContentModel { Path=s});
+            }
+            foreach(var z in Content.ListContentModel)
             {
-                Console.WriteLine(z.Name);
-                foreach(var v in z.GetDirectories())
-                {
-                    Console.WriteLine(v.Name);
-                    if (v.Name == "11")
-                    {
-                        v.Delete();
-                    }
-                   
-                }
-                
+                Console.WriteLine(z.Name());
+                Console.WriteLine(z.GetSize());
             }
 
-            
-            
 
             
+            
+                
+
+            
+            foreach (var z in Content.ListContentModel)
+            {
+                Console.WriteLine(z.Name());
+                Console.WriteLine(z.GetSize());
+            }
+
+
+
         }
     }
 }

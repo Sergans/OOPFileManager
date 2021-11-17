@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lesson_8FileManager.Files
 {
-   public class ListFile
+   public class Content
     {
-       public List<FilesModel> a =new List<FilesModel>();
-        
+       public List<ContentModel> ListContentModel =new List<ContentModel>();
     }
 }
