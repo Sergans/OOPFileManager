@@ -36,7 +36,7 @@ namespace Lesson_8FileManager.Files
             }
             return 0;
         }
-        public void Delete()
+        public ContentModel Delete()
         {
             if (Directory.Exists(Path))
             {
@@ -46,8 +46,11 @@ namespace Lesson_8FileManager.Files
             {
                 FileInfo file = new FileInfo(Path);
                 file.Delete();
-                
+                return this;
             }
+            return this;
         }
+
+       
     }
 }

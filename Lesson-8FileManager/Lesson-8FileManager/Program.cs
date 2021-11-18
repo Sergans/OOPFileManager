@@ -21,12 +21,8 @@ namespace Lesson_8FileManager
                 Console.WriteLine(z.Name());
                 Console.WriteLine(z.GetSize());
             }
-
-
-            
-            
-                
-
+            var f = Content.ListContentModel[1];
+            Content.Delete(f);
             
             foreach (var z in Content.ListContentModel)
             {
