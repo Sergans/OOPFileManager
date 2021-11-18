@@ -21,6 +21,15 @@ namespace Lesson_8FileManager.Files
             }
             return content;
         }
+        public List<string> Get()
+        {
+           List<string> a= new List<string>();
+            foreach (var content in ListContentModel)
+            {
+                a.Add(content.Name());
+            }
+            return a;
+        }
 
        
     }

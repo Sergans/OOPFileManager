@@ -10,25 +10,22 @@ namespace Lesson_8FileManager
     {
         static void Main(string[] args)
         {
-            var a=Directory.EnumerateFileSystemEntries(@"C:\Users\GANS\Desktop\Catalog\Catalog4");
+            var a=Directory.EnumerateFileSystemEntries(@"C:\Users\GANS\Desktop\Catalog\");
             var Content = new Content();
             foreach(var s in a)
             {  
                 Content.ListContentModel.Add(new ContentModel { Path=s});
             }
-            foreach(var z in Content.ListContentModel)
-            {
-                Console.WriteLine(z.Name());
-                Console.WriteLine(z.GetSize());
-            }
-            var f = Content.ListContentModel[1];
-            Content.Delete(f);
             
-            foreach (var z in Content.ListContentModel)
+            foreach(var z in Content.Get())
             {
-                Console.WriteLine(z.Name());
-                Console.WriteLine(z.GetSize());
+                Console.WriteLine(z);
+                Console.WriteLine();
+
             }
+            //var f = Content.ListContentModel[1];
+            //Content.Delete(f);
+
 
 
 
