@@ -40,7 +40,9 @@ namespace Lesson_8FileManager.Files
         {
             if (Directory.Exists(Path))
             {
-               // добавить логику удаления
+                DirectoryInfo directory = new DirectoryInfo(Path);
+                directory.Delete(true);
+                return this;
             }
             else
             {
@@ -48,7 +50,7 @@ namespace Lesson_8FileManager.Files
                 file.Delete();
                 return this;
             }
-            return this;
+           // return this;
         }
 
        

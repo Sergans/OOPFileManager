@@ -20,7 +20,12 @@ namespace Lesson_8FileManager
             foreach(var z in Content.ListContentModel)
             {
                 Console.WriteLine(z.Name());
-                
+            }
+             var f = Content.ListContentModel[4];
+             Content.Delete(f);
+            foreach (var z in Content.ListContentModel)
+            {
+                Console.WriteLine(z.Name());
             }
             //var f = Content.ListContentModel[1];
             //Content.Delete(f);
