@@ -24,37 +24,6 @@ namespace Lesson_8FileManager.Files
 
         }
 
-        //public string Name()
-        //{
-        //    if (Directory.Exists(Path))
-        //    {
-        //        DirectoryInfo directory = new DirectoryInfo(Path);
-        //        return directory.Name;
-        //    }
-        //    else
-        //    {
-        //        FileInfo file = new FileInfo(Path);
-        //        return file.Name;
-        //    }
-        //}
-        public long GetSize()
-        {
-            if (Directory.Exists(Path))
-            {
-                var a = Directory.GetFiles(Path);
-                for(int i = 0; i < a.Length; i++)
-                {
-                    GetSize();
-                }
-                return 0;// добавить логику подсчета размера
-            }
-            else if (File.Exists(Path))
-            {
-                FileInfo file = new FileInfo(Path);
-                return file.Length;
-            }
-            return 0;
-        }
         public FileModel Delete()
         {
             if (Directory.Exists(Path))

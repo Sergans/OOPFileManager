@@ -26,14 +26,16 @@ namespace Lesson_8FileManager.Files
             AddFolder();
             Size = GetSize();
 
-
-
         }
         public long GetSize()
         { long sum = 0;
             foreach(var file in ListFileModel)
             {
                 sum +=file.Size;
+            }
+            foreach (var folder in ListFolderModel)
+            {
+                sum += folder.Size;
             }
             return sum;
         }
