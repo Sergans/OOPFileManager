@@ -10,7 +10,7 @@ namespace Lesson_8FileManager
     {
         static void Main(string[] args)
         {
-         var Content = new Folder(@"C:\Users\GANS\Desktop\Catalog\");
+         var Content = new Folder(@"C:\Users\GANS\Desktop\Catalog");
             
          Console.WriteLine(Content.Name);
          Console.WriteLine(Content.Size);
