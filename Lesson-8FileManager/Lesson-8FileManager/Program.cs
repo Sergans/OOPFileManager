@@ -17,11 +17,10 @@ namespace Lesson_8FileManager
                 Content.ListContentModel.Add(new ContentModel { Path=s});
             }
             
-            foreach(var z in Content.Get())
+            foreach(var z in Content.ListContentModel)
             {
-                Console.WriteLine(z);
-                Console.WriteLine();
-
+                Console.WriteLine(z.Name());
+                
             }
             //var f = Content.ListContentModel[1];
             //Content.Delete(f);
