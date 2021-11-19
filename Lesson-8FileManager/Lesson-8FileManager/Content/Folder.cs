@@ -21,7 +21,27 @@ namespace Lesson_8FileManager.Files
             DirectoryInfo directory = new DirectoryInfo(Path);
             Name = directory.Name;
             DataCreate = directory.CreationTime;
-            Size = file.Length;
+            AddFile();
+            Size = GetSize();
+
+
+
+        }
+        public long GetSize()
+        { long sum = 0;
+            foreach(var file in ListContentModel)
+            {
+                sum +=file.Size;
+            }
+            return sum;
+        }
+        public void AddFile()
+        {
+            var a = Directory.GetFiles(Path);
+            foreach(var file in a)
+            {
+                ListContentModel.Add(new FileModel(file));
+            }
             
 
         }

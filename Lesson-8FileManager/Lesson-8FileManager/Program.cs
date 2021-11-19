@@ -10,12 +10,12 @@ namespace Lesson_8FileManager
     {
         static void Main(string[] args)
         {
-            var a=Directory.EnumerateFileSystemEntries(@"C:\Users\GANS\Desktop\Catalog\Catalog3");
-            var Content = new Folder();
-            foreach(var s in a)
-            {
-                Content.ListContentModel.Add(new FileModel(s));
-            }
+           // var a=Directory.EnumerateFileSystemEntries(@"C:\Users\GANS\Desktop\Catalog\Catalog3");
+            var Content = new Folder(@"C:\Users\GANS\Desktop\Catalog\Catalog3");
+            //foreach(var s in a)
+            //{
+            //    Content.ListContentModel.Add(new FileModel(s));
+            //}
             Console.WriteLine();
             
         }
