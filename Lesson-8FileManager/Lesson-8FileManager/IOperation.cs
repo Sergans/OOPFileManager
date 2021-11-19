@@ -12,7 +12,7 @@ namespace Lesson_8FileManager
         //void Create();
         //void Get();
         //void Update();
-        ContentModel Delete();
+        FileModel Delete();
        // string Name();
         //long GetSize();
 
