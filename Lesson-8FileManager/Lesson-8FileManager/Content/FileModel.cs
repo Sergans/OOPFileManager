@@ -24,23 +24,5 @@ namespace Lesson_8FileManager.Files
 
         }
 
-        public FileModel Delete()
-        {
-            if (Directory.Exists(Path))
-            {
-                DirectoryInfo directory = new DirectoryInfo(Path);
-                directory.Delete(true);
-                return this;
-            }
-            else
-            {
-                FileInfo file = new FileInfo(Path);
-                file.Delete();
-                return this;
-            }
-            // return this;
-        }
-    
-       
     }
 }

@@ -10,9 +10,9 @@ namespace Lesson_8FileManager
     public interface IOperation
     {
         //void Create();
-        //void Get();
+        void Get();
         //void Update();
-        FileModel Delete();
+        void Delete();
        // string Name();
         //long GetSize();
 
