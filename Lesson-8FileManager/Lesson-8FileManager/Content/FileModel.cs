@@ -13,15 +13,13 @@ namespace Lesson_8FileManager.Files
         public string Name { get; set; }
         public long Size { get; set; }
         public DateTime DataCreate { get; set; }
-        
         public FileModel(string path)
-        {
+        {   
             Path = path;
             FileInfo file = new FileInfo(Path);
             Name = file.Name;
             Size = file.Length;
             DataCreate = file.CreationTime;
-
         }
 
     }

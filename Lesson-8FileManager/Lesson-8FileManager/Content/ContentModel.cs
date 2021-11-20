@@ -30,7 +30,5 @@ namespace Lesson_8FileManager.Content
                 Size = file.Length;
            }
         }
-       
-       
     }
 }
