@@ -11,6 +11,15 @@ namespace Lesson_8FileManager.Content
    public class ListContent
    {
       public List<ContentModel> ContentList = new List<ContentModel>();
+      public long GetSize()
+        {
+            long sum = 0;
+            foreach(var a in ContentList)
+            {
+                sum += a.Size;
+            }
+            return sum;  
+        }
       public void Delete(ContentModel item)
       {
           for(int i = 0; i < ContentList.Count; i++)
