@@ -11,6 +11,23 @@ namespace Lesson_8FileManager.Content
    public class ListContent
    {
       public List<ContentModel> ContentList = new List<ContentModel>();
+       
+        public void Open(string path)
+        {
+            if (Directory.Exists(path))
+            {
+                var list = Directory.EnumerateFileSystemEntries(path);
+                foreach (var a in list)
+                {
+                    ContentList.Add(new ContentModel(a));
+                }
+            }
+            else if (File.Exists(path))
+            {
+                Console.WriteLine(File.ReadAllText(path));
+            }
+           
+        }
       public long GetSize()
         {
             long sum = 0;
