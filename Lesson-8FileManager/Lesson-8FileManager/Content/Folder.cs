@@ -15,7 +15,10 @@ namespace Lesson_8FileManager.Files
         public DateTime DataCreate { get; set; }
         public List<FileModel> ListFileModel = new List<FileModel>();
         public List<Folder> ListFolderModel = new List<Folder>();
+        public Folder()
+        {
 
+        }
         public Folder(string path)
         {
             Path = path;

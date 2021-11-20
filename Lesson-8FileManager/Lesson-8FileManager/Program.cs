@@ -18,7 +18,8 @@ namespace Lesson_8FileManager
             {
                 content.ContentList.Add(new ContentModel(a));
             }
-            content.ContentList.RemoveAt(4);
+            var z= content.ContentList[4];
+            content.Delete(z);
             foreach (var c in content.ContentList)
             {
                 Console.WriteLine(c.Name);

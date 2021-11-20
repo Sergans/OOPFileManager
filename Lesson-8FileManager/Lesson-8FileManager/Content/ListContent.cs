@@ -4,15 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lesson_8FileManager.Files;
+using System.IO;
 
 namespace Lesson_8FileManager.Content
 {
    public class ListContent
-    {
-        public List<ContentModel> ContentList = new List<ContentModel>();
-        public void Delete()
-        {
-
-        }
-    }
+   {
+      public List<ContentModel> ContentList = new List<ContentModel>();
+      public void Delete(ContentModel item)
+      {
+          for(int i = 0; i < ContentList.Count; i++)
+          {
+                if (ContentList[i] == item)
+                {
+                    if (Directory.Exists(ContentList[i].Path))
+                    {
+                        Directory.Delete(ContentList[i].Path,true);
+                        ContentList.Remove(item);
+                    }
+                    else if (File.Exists(ContentList[i].Path))
+                    {
+                        File.Delete(ContentList[i].Path);
+                         ContentList.Remove(item);
+                    }
+                  
+                }
+                
+          }
+      }
+   }
 }
