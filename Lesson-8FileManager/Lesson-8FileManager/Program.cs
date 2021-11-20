@@ -13,7 +13,7 @@ namespace Lesson_8FileManager
         static void Main(string[] args)
         {
             ListContent content = new ListContent();
-            content.Open(@"C:\Users\GANS\Desktop\Catalog\Catalog3");
+            content.Open(@"C:\Users\GANS\Desktop\Catalog");
             // var a = content.ContentList[4];
             // content.Delete(a);
             
