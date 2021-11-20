@@ -41,20 +41,20 @@ namespace Lesson_8FileManager.Content
       {
           for(int i = 0; i < ContentList.Count; i++)
           {
-                if (ContentList[i] == item)
-                {
-                    if (Directory.Exists(ContentList[i].Path))
-                    {
-                        Directory.Delete(ContentList[i].Path,true);
-                        ContentList.Remove(item);
-                    }
-                    else if (File.Exists(ContentList[i].Path))
-                    {
-                        File.Delete(ContentList[i].Path);
-                         ContentList.Remove(item);
-                    }
+            if (ContentList[i] == item)
+            {
+              if (Directory.Exists(ContentList[i].Path))
+              {
+                Directory.Delete(ContentList[i].Path,true);
+                ContentList.Remove(item);
+              }
+              else if (File.Exists(ContentList[i].Path))
+              {
+                File.Delete(ContentList[i].Path);
+                ContentList.Remove(item);
+              }
                   
-                }
+            }
                 
           }
       }

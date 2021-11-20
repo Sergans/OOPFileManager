@@ -26,12 +26,6 @@ namespace Lesson_8FileManager
             }
            Console.WriteLine(content.GetSize());
 
-            //var Content = new Folder(@"C:\Users\GANS\Desktop\Catalog\Catalog4");
-
-            //Console.WriteLine(Content.Name);
-            //Console.WriteLine(Content.Size);
-            //Console.WriteLine(Content.DataCreate);
-
         }
     }
 }
