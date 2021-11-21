@@ -9,39 +9,107 @@ using System.Collections.Generic;
 namespace Lesson_8FileManager
 {
     class Program
-    {    public static void Print(ContentModel content)
+    {  
+       static int b=0;
+        public static void Print(ListContent content)
         {
+            for (int i = 0; i < content.ContentList.Count; i++)
+            {
+                if (i == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write($"{content.ContentList[i].Name} ");
+                    Console.Write($"{content.ContentList[i].Size} ");
+                    Console.Write($"{content.ContentList[i].DataCreate} ");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.ResetColor();
+                    Console.Write($"{content.ContentList[i].Name} ");
+                    Console.Write($"{content.ContentList[i].Size} ");
+                    Console.Write($"{content.ContentList[i].DataCreate} ");
+                    Console.WriteLine();
+                }
+            }
+              
+        }
+        public static void Print(ListContent content,ContentModel selectContent)
+        {
+            Console.Clear();
+            for(int i = 0; i < content.ContentList.Count; i++)
+            {
+
+                if ((content.ContentList[i] == selectContent)&&i==0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write($"{content.ContentList[i].Name} ");
+                    Console.Write($"{content.ContentList[i].Size} ");
+                    Console.Write($"{content.ContentList[i].DataCreate} ");
+                    Console.WriteLine();
+                }
+                else if(content.ContentList[i] == selectContent)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write($"{content.ContentList[i].Name} ");
+                    Console.Write($"{content.ContentList[i].Size} ");
+                    Console.Write($"{content.ContentList[i].DataCreate} ");
+                    Console.WriteLine();
+                }
+                else {
+                    Console.ResetColor();
+                    Console.Write($"{content.ContentList[i].Name} ");
+                    Console.Write($"{content.ContentList[i].Size} ");
+                    Console.Write($"{content.ContentList[i].DataCreate} ");
+                    Console.WriteLine();
+                }
+                
+
+            }
             
-                //Console.BackgroundColor=ConsoleColor.Red;
-                Console.Write($"{content.Name} ");
-                Console.Write($"{content.Size} ");
-                Console.Write($"{content.DataCreate} ");
-                Console.WriteLine();
          }
 
         public static ContentModel Select(ListContent content)
         {
-            int i = 0;
-            if (ConsoleKey.DownArrow == Console.ReadKey().Key)
+            //if (b > content.ContentList.Count&& ConsoleKey.DownArrow == Console.ReadKey().Key)
+            //{
+            //    b = 0;
+            //    return content.ContentList[b];
+               
+            //}
+           if (ConsoleKey.DownArrow == Console.ReadKey().Key)
             {
-                i++;
-                return content.ContentList[i];
+               
+                return content.ContentList[++b];
+            }
+            else if (ConsoleKey.UpArrow == Console.ReadKey().Key)
+            {
+                
+                return content.ContentList[--b];
             }
 
-            return content.ContentList[i];
+            return content.ContentList[b];
         }
         static void Main(string[] args)
         {
             
             ListContent content = new ListContent();
             content.Open(@"C:\Users\GANS\Desktop\Catalog");
-            // var a = content.ContentList[4];
+            //var a = content.ContentList[3];
             // content.Delete(a);
+            Print(content);
+            while (true)
+            {
+                Print(content, Select(content));
+            }
 
-            Print(Select(content));
-            Print(Select(content));
-            Console.WriteLine(content.GetSize());
-           
+
+
+
+
+
+            //Console.WriteLine(content.GetSize());
+
         }
     }
 }
