@@ -9,21 +9,27 @@ using System.Collections.Generic;
 namespace Lesson_8FileManager
 {
     class Program
-    {    public static void Print(ListContent content)
+    {    public static void Print(ContentModel content)
         {
-            foreach (var c in content.ContentList)
-            {
+            
                 //Console.BackgroundColor=ConsoleColor.Red;
-                Console.Write($"{c.Name} ");
-                Console.Write($"{c.Size} ");
-                Console.Write($"{c.DataCreate} ");
+                Console.Write($"{content.Name} ");
+                Console.Write($"{content.Size} ");
+                Console.Write($"{content.DataCreate} ");
                 Console.WriteLine();
+         }
+
+        public static ContentModel Select(ListContent content)
+        {
+            int i = 0;
+            if (ConsoleKey.DownArrow == Console.ReadKey().Key)
+            {
+                i++;
+                return content.ContentList[i];
             }
+
+            return content.ContentList[i];
         }
-        //public static ListContent Select(ListContent content)
-        //{
-        //    if(ConsoleKey.DownArrow)
-        //}
         static void Main(string[] args)
         {
             
@@ -32,8 +38,9 @@ namespace Lesson_8FileManager
             // var a = content.ContentList[4];
             // content.Delete(a);
 
-            Print(content);
-           Console.WriteLine(content.GetSize());
+            Print(Select(content));
+            Print(Select(content));
+            Console.WriteLine(content.GetSize());
            
         }
     }
