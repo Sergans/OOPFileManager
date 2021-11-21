@@ -9,22 +9,30 @@ using System.Collections.Generic;
 namespace Lesson_8FileManager
 {
     class Program
-    {
+    {    public static void Print(ListContent content)
+        {
+            foreach (var c in content.ContentList)
+            {
+                //Console.BackgroundColor=ConsoleColor.Red;
+                Console.Write($"{c.Name} ");
+                Console.Write($"{c.Size} ");
+                Console.Write($"{c.DataCreate} ");
+                Console.WriteLine();
+            }
+        }
+        //public static ListContent Select(ListContent content)
+        //{
+        //    if(ConsoleKey.DownArrow)
+        //}
         static void Main(string[] args)
         {
             
             ListContent content = new ListContent();
-            content.Open(@"C:\Program Files (x86)");
+            content.Open(@"C:\Users\GANS\Desktop\Catalog");
             // var a = content.ContentList[4];
             // content.Delete(a);
-            
-            foreach (var c in content.ContentList)
-            {
-                Console.WriteLine(c.Name);
-                Console.WriteLine(c.Size);
-                Console.WriteLine(c.DataCreate);
-                Console.WriteLine();
-            }
+
+            Print(content);
            Console.WriteLine(content.GetSize());
            
         }
