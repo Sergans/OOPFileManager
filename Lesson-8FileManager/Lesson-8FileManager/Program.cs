@@ -82,7 +82,7 @@ namespace Lesson_8FileManager
                
                 return content.ContentList[++b];
             }
-            else if (ConsoleKey.UpArrow == Console.ReadKey().Key)
+            else
             {
                 
                 return content.ContentList[--b];
