@@ -12,8 +12,9 @@ namespace Lesson_8FileManager
     {
         static void Main(string[] args)
         {
+            
             ListContent content = new ListContent();
-            content.Open(@"C:\Users\GANS\Desktop\Catalog");
+            content.Open(@"C:\Program Files (x86)");
             // var a = content.ContentList[4];
             // content.Delete(a);
             
@@ -25,7 +26,7 @@ namespace Lesson_8FileManager
                 Console.WriteLine();
             }
            Console.WriteLine(content.GetSize());
-
+           
         }
     }
 }
