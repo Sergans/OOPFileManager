@@ -75,7 +75,6 @@ namespace Lesson_8FileManager
            if (ConsoleKey.DownArrow == kl)
             {
               return content.ContentList[++b];           
-              
             }
             else if(ConsoleKey.UpArrow==kl)
             {
@@ -85,7 +84,11 @@ namespace Lesson_8FileManager
             {
                 content.Delete(content.ContentList[b]);
                 b = 0;
-               
+            }
+           else if (ConsoleKey.Enter == kl)
+            {
+                content.Open(content.ContentList[b].Path);
+                b = 0;
             }
 
             return content.ContentList[b];
@@ -94,7 +97,7 @@ namespace Lesson_8FileManager
         {
             
             ListContent content = new ListContent();
-            content.Open(@"C:\Users\GANS\Desktop\Catalog");
+            //content.Open(@"C:\Users\GANS\Desktop\Catalog");
             
             //var a = content.ContentList[3];
             // content.Delete(a);
