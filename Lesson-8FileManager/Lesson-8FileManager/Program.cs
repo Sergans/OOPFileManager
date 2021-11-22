@@ -69,23 +69,23 @@ namespace Lesson_8FileManager
             
          }
 
-        public static ContentModel Select(ListContent content)
+        public static ContentModel SelectUpDown(ListContent content)
         {
-            //if (b > content.ContentList.Count&& ConsoleKey.DownArrow == Console.ReadKey().Key)
-            //{
-            //    b = 0;
-            //    return content.ContentList[b];
-               
-            //}
-           if (ConsoleKey.DownArrow == Console.ReadKey().Key)
+           var kl = Console.ReadKey().Key;
+           if (ConsoleKey.DownArrow == kl)
             {
-               
-                return content.ContentList[++b];
+              return content.ContentList[++b];           
+              
             }
-            else
+            else if(ConsoleKey.UpArrow==kl)
             {
-                
                 return content.ContentList[--b];
+            }
+           else if (ConsoleKey.Delete == kl)
+            {
+                content.Delete(content.ContentList[b]);
+                b = 0;
+               
             }
 
             return content.ContentList[b];
@@ -95,12 +95,17 @@ namespace Lesson_8FileManager
             
             ListContent content = new ListContent();
             content.Open(@"C:\Users\GANS\Desktop\Catalog");
+            
             //var a = content.ContentList[3];
             // content.Delete(a);
-            Print(content);
+            Print(content.Open(@"C:\Users\GANS\Desktop\Catalog"));
+            //var a=Select(content);
+            //content.Open(a.Path);
+            //Console.WriteLine();
             while (true)
             {
-                Print(content, Select(content));
+                var c = SelectUpDown(content);
+                Print(content, c);
             }
 
 

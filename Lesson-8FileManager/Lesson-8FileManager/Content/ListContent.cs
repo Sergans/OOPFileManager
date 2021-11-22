@@ -12,8 +12,9 @@ namespace Lesson_8FileManager.Content
    {
       public List<ContentModel> ContentList = new List<ContentModel>();
        
-        public void Open(string path)
+        public ListContent Open(string path)
         {
+            ContentList = new List<ContentModel>();
             if (Directory.Exists(path))
             {
                 var list = Directory.EnumerateFileSystemEntries(path);
@@ -26,7 +27,7 @@ namespace Lesson_8FileManager.Content
             {
                 Console.WriteLine(File.ReadAllText(path));
             }
-           
+            return this; 
         }
       public long GetSize()
         {
