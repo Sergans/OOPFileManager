@@ -11,6 +11,7 @@ namespace Lesson_8FileManager
     class Program
     {  
        static int b=0;
+        static int c = 0;
         public static void Print(ListContent content)
         {
             for (int i = 0; i < content.ContentList.Count; i++)
@@ -72,11 +73,11 @@ namespace Lesson_8FileManager
         public static ContentModel SelectUpDown(ListContent content)
         {
            var kl = Console.ReadKey().Key;
-           if (ConsoleKey.DownArrow == kl)
+           if (ConsoleKey.DownArrow == kl&&b <(content.ContentList.Count-1))
             {
               return content.ContentList[++b];           
             }
-            else if(ConsoleKey.UpArrow==kl)
+            else if(ConsoleKey.UpArrow==kl && b <= content.ContentList.Count-1&&b>0)
             {
                 return content.ContentList[--b];
             }
@@ -89,6 +90,10 @@ namespace Lesson_8FileManager
             {
                 content.Open(content.ContentList[b].Path);
                 b = 0;
+            }
+            else if (ConsoleKey.Escape == kl)
+            {
+               
             }
 
             return content.ContentList[b];
