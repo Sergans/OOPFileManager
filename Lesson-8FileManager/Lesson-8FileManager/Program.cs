@@ -86,14 +86,16 @@ namespace Lesson_8FileManager
                 content.Delete(content.ContentList[b]);
                 b = 0;
             }
-           else if (ConsoleKey.Enter == kl)
+           else if (ConsoleKey.RightArrow == kl)
             {
                 content.Open(content.ContentList[b].Path);
                 b = 0;
             }
-            else if (ConsoleKey.Escape == kl)
+            else if (ConsoleKey.LeftArrow == kl)
             {
-               
+                
+              content.Open(Directory.GetParent(content.RootPath).ToString());
+                b = 0; 
             }
 
             return content.ContentList[b];

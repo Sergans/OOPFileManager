@@ -10,10 +10,12 @@ namespace Lesson_8FileManager.Content
 {
    public class ListContent
    {
+      public string RootPath { get; set; }
       public List<ContentModel> ContentList = new List<ContentModel>();
        
         public ListContent Open(string path)
         {
+            RootPath = path;
             ContentList = new List<ContentModel>();
             if (Directory.Exists(path))
             {
