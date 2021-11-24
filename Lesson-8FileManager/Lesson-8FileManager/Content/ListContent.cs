@@ -15,21 +15,31 @@ namespace Lesson_8FileManager.Content
        
         public ListContent Open(string path)
         {
-            RootPath = path;
-            ContentList = new List<ContentModel>();
-            if (Directory.Exists(path))
+            var list = Directory.EnumerateFileSystemEntries(path);
+            if (list.Count() == 0)
             {
-                var list = Directory.EnumerateFileSystemEntries(path);
-                foreach (var a in list)
+                
+                return this;
+            }
+            else
+            {
+                RootPath = path;
+                ContentList = new List<ContentModel>();
+                if (Directory.Exists(path))
                 {
-                    ContentList.Add(new ContentModel(a));
+
+                    foreach (var a in list)
+                    {
+                        ContentList.Add(new ContentModel(a));
+                    }
                 }
+                else if (File.Exists(path))
+                {
+                    Console.WriteLine(File.ReadAllText(path));
+                }
+                return this;
             }
-            else if (File.Exists(path))
-            {
-                Console.WriteLine(File.ReadAllText(path));
-            }
-            return this; 
+             
         }
       public long GetSize()
         {

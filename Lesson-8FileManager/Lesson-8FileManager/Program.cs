@@ -73,6 +73,7 @@ namespace Lesson_8FileManager
         public static ContentModel SelectUpDown(ListContent content)
         {
            var kl = Console.ReadKey().Key;
+            
            if (ConsoleKey.DownArrow == kl&&b <(content.ContentList.Count-1))
             {
               return content.ContentList[++b];           
@@ -84,6 +85,11 @@ namespace Lesson_8FileManager
            else if (ConsoleKey.Delete == kl)
             {
                 content.Delete(content.ContentList[b]);
+                if (content.ContentList.Count == 0)
+                {
+                    content.Open(Directory.GetParent(content.RootPath).ToString());
+                }
+                
                 b = 0;
             }
            else if (ConsoleKey.RightArrow == kl)
