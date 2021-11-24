@@ -14,6 +14,10 @@ namespace Lesson_8FileManager
         static int c = 0;
         public static void Print(ListContent content)
         {
+            if (content.ContentList.Count == 0)
+            {
+                Console.WriteLine("ПУСТО");
+            }
             for (int i = 0; i < content.ContentList.Count; i++)
             {
                 if (i == 0)
@@ -38,8 +42,13 @@ namespace Lesson_8FileManager
         public static void Print(ListContent content,ContentModel selectContent)
         {
             Console.Clear();
-            for(int i = 0; i < content.ContentList.Count; i++)
+            if (content.ContentList.Count == 0)
             {
+                Console.WriteLine("ПУСТО");
+            }
+            for (int i = 0; i < content.ContentList.Count; i++)
+            {
+                
 
                 if ((content.ContentList[i] == selectContent)&&i==0)
                 {
@@ -87,7 +96,8 @@ namespace Lesson_8FileManager
                 content.Delete(content.ContentList[b]);
                 if (content.ContentList.Count == 0)
                 {
-                    content.Open(Directory.GetParent(content.RootPath).ToString());
+                    // content.Open(Directory.GetParent(content.RootPath).ToString());
+                    return null;
                 }
                 
                 b = 0;
@@ -95,6 +105,11 @@ namespace Lesson_8FileManager
            else if (ConsoleKey.RightArrow == kl)
             {
                 content.Open(content.ContentList[b].Path);
+                if (content.ContentList.Count == 0)
+                {
+                    // content.Open(Directory.GetParent(content.RootPath).ToString());
+                    return null; 
+                }
                 b = 0;
             }
             else if (ConsoleKey.LeftArrow == kl)
@@ -114,7 +129,7 @@ namespace Lesson_8FileManager
             
             //var a = content.ContentList[3];
             // content.Delete(a);
-            Print(content.Open(@"C:\Users\GANS\Desktop\Catalog"));
+            Print(content.Open(@"C:\Users\GANS\Desktop\Catalog\"));
             //var a=Select(content);
             //content.Open(a.Path);
             //Console.WriteLine();

@@ -16,13 +16,13 @@ namespace Lesson_8FileManager.Content
         public ListContent Open(string path)
         {
             var list = Directory.EnumerateFileSystemEntries(path);
-            if (list.Count() == 0)
-            {
+            //if (list.Count() == 0)
+            //{
                 
-                return this;
-            }
-            else
-            {
+            //    return this;
+            //}
+            
+            
                 RootPath = path;
                 ContentList = new List<ContentModel>();
                 if (Directory.Exists(path))
@@ -38,7 +38,7 @@ namespace Lesson_8FileManager.Content
                     Console.WriteLine(File.ReadAllText(path));
                 }
                 return this;
-            }
+            
              
         }
       public long GetSize()
