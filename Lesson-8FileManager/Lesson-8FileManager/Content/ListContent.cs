@@ -13,7 +13,7 @@ namespace Lesson_8FileManager.Content
       public string RootPath { get; set; }
       public List<ContentModel> ContentList = new List<ContentModel>();
        
-        public ListContent Open(string path)
+      public ListContent Open(string path)
         {
             var list = Directory.EnumerateFileSystemEntries(path);
             RootPath = path;

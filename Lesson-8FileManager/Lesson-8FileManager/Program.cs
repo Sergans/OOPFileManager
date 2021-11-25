@@ -45,7 +45,7 @@ namespace Lesson_8FileManager
             if (content.ContentList.Count == 0&&selectContent==null)
             {
                 Console.ResetColor();
-                Console.WriteLine("ПУСТО");
+                Console.WriteLine("Эта папка пуста");
             }
             for (int i = 0; i < content.ContentList.Count; i++)
             {
@@ -86,6 +86,18 @@ namespace Lesson_8FileManager
             {
                 content.Open(Directory.GetParent(content.RootPath).ToString());
                 b = 0;
+            }
+            if(ConsoleKey.F1 == kl)
+            {
+                Console.Clear();
+                string NewFolder = Console.ReadLine();
+
+                string NewPath = Path.Combine(content.RootPath, NewFolder);
+                Directory.CreateDirectory(NewPath);
+                content.Open(NewPath);
+                content.Open(Directory.GetParent(content.RootPath).ToString());
+
+
             }
             if (content.ContentList.Count != 0)
             {
