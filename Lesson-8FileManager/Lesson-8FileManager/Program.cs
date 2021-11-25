@@ -91,13 +91,49 @@ namespace Lesson_8FileManager
             {
                 Console.Clear();
                 string NewFolder = Console.ReadLine();
-
-                string NewPath = Path.Combine(content.RootPath, NewFolder);
-                Directory.CreateDirectory(NewPath);
-                content.Open(NewPath);
-                content.Open(Directory.GetParent(content.RootPath).ToString());
-
-
+                string NewPath;
+                if (NewFolder == "")
+                {
+                    NewFolder = "Новая папка";
+                    NewPath = Path.Combine(content.RootPath, NewFolder);
+                    if (Directory.Exists(NewPath))
+                    {
+                        Console.Clear();
+                        NewFolder = NewFolder + 1;
+                        NewPath = Path.Combine(content.RootPath, NewFolder);
+                        Directory.CreateDirectory(NewPath);
+                        content.Open(NewPath);
+                        content.Open(Directory.GetParent(content.RootPath).ToString());
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(NewPath);
+                        content.Open(NewPath);
+                        content.Open(Directory.GetParent(content.RootPath).ToString());
+                    }
+                    
+                }
+                else
+                {
+                    NewPath = Path.Combine(content.RootPath, NewFolder);
+                    if (Directory.Exists(NewPath))
+                    {
+                        Console.Clear();
+                        NewFolder = NewFolder + 1;
+                        NewPath = Path.Combine(content.RootPath, NewFolder);
+                        Directory.CreateDirectory(NewPath);
+                        content.Open(NewPath);
+                        content.Open(Directory.GetParent(content.RootPath).ToString());
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(NewPath);
+                        content.Open(NewPath);
+                        content.Open(Directory.GetParent(content.RootPath).ToString());
+                    }
+                        
+                }
+                
             }
             if (content.ContentList.Count != 0)
             {
