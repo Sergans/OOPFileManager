@@ -42,8 +42,9 @@ namespace Lesson_8FileManager
         public static void Print(ListContent content,ContentModel selectContent)
         {
             Console.Clear();
-            if (content.ContentList.Count == 0)
+            if (content.ContentList.Count == 0&&selectContent==null)
             {
+                Console.ResetColor();
                 Console.WriteLine("ПУСТО");
             }
             for (int i = 0; i < content.ContentList.Count; i++)
@@ -73,8 +74,7 @@ namespace Lesson_8FileManager
                     Console.Write($"{content.ContentList[i].DataCreate} ");
                     Console.WriteLine();
                 }
-                
-
+              
             }
             
          }
@@ -82,69 +82,60 @@ namespace Lesson_8FileManager
         public static ContentModel SelectUpDown(ListContent content)
         {
            var kl = Console.ReadKey().Key;
-            
-           if (ConsoleKey.DownArrow == kl&&b <(content.ContentList.Count-1))
+            if (ConsoleKey.LeftArrow == kl)
             {
-              return content.ContentList[++b];           
-            }
-            else if(ConsoleKey.UpArrow==kl && b <= content.ContentList.Count-1&&b>0)
-            {
-                return content.ContentList[--b];
-            }
-           else if (ConsoleKey.Delete == kl)
-            {
-                content.Delete(content.ContentList[b]);
-                if (content.ContentList.Count == 0)
-                {
-                    // content.Open(Directory.GetParent(content.RootPath).ToString());
-                    return null;
-                }
-                
+                content.Open(Directory.GetParent(content.RootPath).ToString());
                 b = 0;
             }
-           else if (ConsoleKey.RightArrow == kl)
+            if (content.ContentList.Count != 0)
             {
-                content.Open(content.ContentList[b].Path);
-                if (content.ContentList.Count == 0)
+                if (ConsoleKey.DownArrow == kl && b < (content.ContentList.Count - 1))
                 {
-                    // content.Open(Directory.GetParent(content.RootPath).ToString());
-                    return null; 
+                    return content.ContentList[++b];
                 }
-                b = 0;
+                else if (ConsoleKey.UpArrow == kl && b <= content.ContentList.Count - 1 && b > 0)
+                {
+                    return content.ContentList[--b];
+                }
+                else if (ConsoleKey.Delete == kl)
+                {
+                    content.Delete(content.ContentList[b]);
+                    if (content.ContentList.Count == 0)
+                    {
+                        b = 0;
+                        return null;
+                    }
+                    b = 0;
+                }
+                else if (ConsoleKey.RightArrow == kl)
+                {
+                    content.Open(content.ContentList[b].Path);
+                    if (content.ContentList.Count == 0)
+                    {
+                        b = 0;
+                        return null;
+                    }
+                    b = 0;
+                }
             }
-            else if (ConsoleKey.LeftArrow == kl)
+            else
             {
-                
-              content.Open(Directory.GetParent(content.RootPath).ToString());
-                b = 0; 
+                b = 0;
+                return null;
             }
-
+          
             return content.ContentList[b];
         }
         static void Main(string[] args)
         {
             
             ListContent content = new ListContent();
-            //content.Open(@"C:\Users\GANS\Desktop\Catalog");
-            
-            //var a = content.ContentList[3];
-            // content.Delete(a);
             Print(content.Open(@"C:\Users\GANS\Desktop\Catalog\"));
-            //var a=Select(content);
-            //content.Open(a.Path);
-            //Console.WriteLine();
             while (true)
             {
                 var c = SelectUpDown(content);
                 Print(content, c);
             }
-
-
-
-
-
-
-            //Console.WriteLine(content.GetSize());
 
         }
     }
