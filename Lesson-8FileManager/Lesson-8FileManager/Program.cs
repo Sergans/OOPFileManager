@@ -124,6 +124,7 @@ namespace Lesson_8FileManager
                         Directory.CreateDirectory(NewPath);
                         content.Open(NewPath);
                         content.Open(Directory.GetParent(content.RootPath).ToString());
+                        
                     }
                     else
                     {
@@ -164,6 +165,15 @@ namespace Lesson_8FileManager
                         return null;
                     }
                     b = 0;
+                }
+                else if (ConsoleKey.F2 == kl)
+                {
+                    string NewFolder = Console.ReadLine();
+                    string NewPath;
+                    NewPath = Path.Combine(content.RootPath, NewFolder);
+                    Directory.Move(content.ContentList[b].Path, NewPath);
+                    content.Open(NewPath);
+                    content.Open(Directory.GetParent(content.RootPath).ToString());
                 }
             }
             else
