@@ -16,13 +16,13 @@ namespace Lesson_8FileManager
         {
             if (content.ContentList.Count == 0)
             {
-                Console.WriteLine("ПУСТО");
+                Console.WriteLine("Эта папка пуста");
             }
             for (int i = 0; i < content.ContentList.Count; i++)
             {
                 if (i == 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write($"{content.ContentList[i].Name} ");
                     Console.Write($"{content.ContentList[i].Size} ");
                     Console.Write($"{content.ContentList[i].DataCreate} ");
@@ -53,7 +53,7 @@ namespace Lesson_8FileManager
 
                 if ((content.ContentList[i] == selectContent)&&i==0)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write($"{content.ContentList[i].Name} ");
                     Console.Write($"{content.ContentList[i].Size} ");
                     Console.Write($"{content.ContentList[i].DataCreate} ");
@@ -61,7 +61,7 @@ namespace Lesson_8FileManager
                 }
                 else if(content.ContentList[i] == selectContent)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write($"{content.ContentList[i].Name} ");
                     Console.Write($"{content.ContentList[i].Size} ");
                     Console.Write($"{content.ContentList[i].DataCreate} ");
