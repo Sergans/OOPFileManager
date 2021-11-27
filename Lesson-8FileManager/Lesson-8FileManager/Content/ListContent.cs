@@ -64,5 +64,33 @@ namespace Lesson_8FileManager.Content
                 
           }
       }
+        public void Rename(ContentModel item,string path)
+        {
+
+            for (int i = 0; i < ContentList.Count; i++)
+            {
+                if (ContentList[i] == item)
+                {
+                    if (Directory.Exists(ContentList[i].Path))
+                    {
+                        ContentList[i].Name = path;
+                        string NewPath = Path.Combine(RootPath, path);
+                        Directory.Move(ContentList[i].Path,NewPath);
+                        
+                    }
+                    else if (File.Exists(ContentList[i].Path))
+                    {
+                        ContentList[i].Name = path;
+                        string NewPath = Path.Combine(RootPath, path);
+                        File.Move(ContentList[i].Path, NewPath);
+                        
+                        
+                    }
+
+                }
+
+            }
+
+        }
    }
 }

@@ -168,10 +168,27 @@ namespace Lesson_8FileManager
                 }
                 else if (ConsoleKey.F2 == kl)
                 {
+                   // string NewPath;
+                    string NewFolder = Console.ReadLine();
+
+                    //string NewPath = Path.Combine(content.RootPath, NewFolder);
+                    content.Rename(content.ContentList[b],NewFolder);
+                    //content.Open(NewPath);
+                    //content.Open(Directory.GetParent(content.RootPath).ToString());
+                    b = 0;
+
+
+                    //Directory.Move(content.ContentList[b].Path, NewPath);
+                    //content.Open(NewPath);
+                    //content.Open(Directory.GetParent(content.RootPath).ToString());
+                }
+                else if(ConsoleKey.F3 == kl)
+                {
                     string NewFolder = Console.ReadLine();
                     string NewPath;
                     NewPath = Path.Combine(content.RootPath, NewFolder);
-                    Directory.Move(content.ContentList[b].Path, NewPath);
+                    FileInfo s = new FileInfo(NewPath);
+                   
                     content.Open(NewPath);
                     content.Open(Directory.GetParent(content.RootPath).ToString());
                 }
