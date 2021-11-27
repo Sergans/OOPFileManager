@@ -80,8 +80,9 @@ namespace Lesson_8FileManager.Content
                     }
                     else if (File.Exists(ContentList[i].Path))
                     {
-                        ContentList[i].Name = path;
-                        string NewPath = Path.Combine(RootPath, path);
+                        var extension = new FileInfo(ContentList[i].Path);
+                        ContentList[i].Name = path+extension.Extension;
+                        string NewPath = Path.Combine(RootPath, ContentList[i].Name);
                         File.Move(ContentList[i].Path, NewPath);
                         
                         
