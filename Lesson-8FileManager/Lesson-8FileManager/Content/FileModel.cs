@@ -43,9 +43,10 @@ namespace Lesson_8FileManager.Files
         }
         public void Rename(string root_path,string name)
         {
-            this.Name = name;
+            
             string NewPath = Path.Combine(root_path, name+Extens);
             File.Move(FilePath, NewPath);
+            this.Name = name + Extens;
         }
         public string GetPath()
         {
