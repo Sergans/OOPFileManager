@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Lesson_8FileManager.Files
 {
-    public class FileModel
+    public class FileModel:IContent
     {
         public string Path { get; set; }
         public string Name { get; set; }

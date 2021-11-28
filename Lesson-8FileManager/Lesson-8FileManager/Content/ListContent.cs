@@ -8,22 +8,22 @@ using System.IO;
 
 namespace Lesson_8FileManager.Content
 {
-   public class ListContent
+   public class ListContent<T>
    {
       public string RootPath { get; set; }
-      public List<ContentModel> ContentList = new List<ContentModel>();
+      public List<T> ContentList = new List<T>();
        
-      public ListContent Open(string path)
+      public ListContent<T> Open(string path)
         {
             var list = Directory.EnumerateFileSystemEntries(path);
             RootPath = path;
-                ContentList = new List<ContentModel>();
+                //ContentList = new List<IContent>();
                 if (Directory.Exists(path))
                 {
 
                     foreach (var a in list)
                     {
-                        ContentList.Add(new ContentModel(a));
+                        ContentList.Add(new Folder(a));
                     }
                 }
                 else if (File.Exists(path))

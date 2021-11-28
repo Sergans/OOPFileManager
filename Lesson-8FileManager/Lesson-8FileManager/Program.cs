@@ -12,7 +12,7 @@ namespace Lesson_8FileManager
     {  
        static int b=0;
         static int c = 0;
-        public static void Print(ListContent content)
+        public static void Print(ListContent<IContent> content)
         {
             if (content.ContentList.Count == 0)
             {
@@ -194,12 +194,12 @@ namespace Lesson_8FileManager
         static void Main(string[] args)
         {
             
-            ListContent content = new ListContent();
+            ListContent<IContent> content = new ListContent<IContent>();
             Print(content.Open(@"C:\Users\GANS\Desktop\Catalog\"));
             while (true)
             {
-                var c = SelectUpDown(content);
-                Print(content, c);
+                //var c = SelectUpDown(content);
+                //Print(content, c);
             }
 
         }

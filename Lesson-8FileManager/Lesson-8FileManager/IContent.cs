@@ -7,12 +7,12 @@ using Lesson_8FileManager.Files;
 
 namespace Lesson_8FileManager
 {
-    public interface IOperation
+    public interface IContent
     {
         //void Create();
-        void Get();
+        //void Get();
         //void Update();
-        void Delete();
+        //void Delete();
        // string Name();
         //long GetSize();
 
