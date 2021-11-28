@@ -12,7 +12,7 @@ namespace Lesson_8FileManager.Content
     {
         public string RootPath { get; set; }
         public List<IContent> contents { get; set; }
-
+                
         public ContentOperation Open(string path)
         {
             ListContent<IContent> content = new ListContent<IContent>();

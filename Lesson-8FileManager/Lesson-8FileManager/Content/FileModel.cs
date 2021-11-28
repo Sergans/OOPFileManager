@@ -41,7 +41,6 @@ namespace Lesson_8FileManager.Files
         {
             return DataCreate;
         }
-
         public void Rename(string root_path,string name)
         {
             this.Name = name;

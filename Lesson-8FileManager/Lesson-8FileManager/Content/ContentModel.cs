@@ -8,7 +8,7 @@ using Lesson_8FileManager.Files;
 
 namespace Lesson_8FileManager.Content
 {
-    public class ContentModel:Folder
+    public class ContentModel
     {
         //public ContentModel(string path) : base()
         //{
