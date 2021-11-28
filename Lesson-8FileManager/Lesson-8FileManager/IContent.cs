@@ -16,6 +16,8 @@ namespace Lesson_8FileManager
         string GetName();
         long GetSize();
         DateTime GetDate();
+        void Rename(string root_path,string name);
+
 
 
     }

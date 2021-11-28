@@ -9,17 +9,20 @@ namespace Lesson_8FileManager.Files
 {
     public class FileModel:IContent
     {
-        public string Path { get; set; }
-        public string Name { get; set; }
+        public string FilePath { get; set; }
+        private string Name;
         public long Size { get; set; }
         public DateTime DataCreate { get; set; }
+        public string Extens { get; set; }
         public FileModel(string path)
         {   
-            Path = path;
-            FileInfo file = new FileInfo(Path);
+            FilePath = path;
+            FileInfo file = new FileInfo(FilePath);
             Name = file.Name;
             Size = file.Length;
             DataCreate = file.CreationTime;
+            Extens = file.Extension;
+
         }
 
         public long GetSize()
@@ -28,7 +31,7 @@ namespace Lesson_8FileManager.Files
         }
         public void Delete()
         {
-            File.Delete(this.Path);
+            File.Delete(this.FilePath);
         }
         public string GetName()
         {
@@ -37,6 +40,13 @@ namespace Lesson_8FileManager.Files
         public DateTime GetDate()
         {
             return DataCreate;
+        }
+
+        public void Rename(string root_path,string name)
+        {
+            this.Name = name;
+            string NewPath = Path.Combine(root_path, name+Extens);
+            File.Move(FilePath, NewPath);
         }
     }
 }

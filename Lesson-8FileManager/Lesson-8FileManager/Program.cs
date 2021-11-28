@@ -195,9 +195,10 @@ namespace Lesson_8FileManager
         {
             
             ContentOperation content = new ContentOperation();
-            //content.Open(@"C:\Users\GANS\Desktop\Catalog\");
-           // var a = content.contents[4];
-           // content.Delete(a);
+            content.Open(@"C:\Users\GANS\Desktop\Catalog\");
+            var a = content.contents[4];
+            // content.Delete(a);
+            content.Rename(a, "Catalog40");
            // content.ContentList.Add(new Folder(@"C:\Users\GANS\Desktop\Catalog\"));
             Print(content.Open(@"C:\Users\GANS\Desktop\Catalog\"));
             while (true)

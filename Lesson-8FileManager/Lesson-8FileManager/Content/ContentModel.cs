@@ -10,25 +10,25 @@ namespace Lesson_8FileManager.Content
 {
     public class ContentModel:Folder
     {
-        public ContentModel(string path) : base()
-        {
-            Path = path;
-            if (Directory.Exists(Path))
-            {
-                DirectoryInfo directory = new DirectoryInfo(Path);
-                Name = directory.Name;
-                DataCreate = directory.CreationTime;
-                AddFile();
-                AddFolder();
-                Size = GetSize();
-            }
-           else if(File.Exists(Path))
-            {
-                FileInfo file = new FileInfo(Path);
-                Name = file.Name;
-                DataCreate = file.CreationTime;
-                Size = file.Length;
-           }
-        }
+        //public ContentModel(string path) : base()
+        //{
+        //    Path = path;
+        //    if (Directory.Exists(Path))
+        //    {
+        //        DirectoryInfo directory = new DirectoryInfo(Path);
+        //        Name = directory.Name;
+        //        DataCreate = directory.CreationTime;
+        //        AddFile();
+        //        AddFolder();
+        //        Size = GetSize();
+        //    }
+        //   else if(File.Exists(Path))
+        //    {
+        //        FileInfo file = new FileInfo(Path);
+        //        Name = file.Name;
+        //        DataCreate = file.CreationTime;
+        //        Size = file.Length;
+        //   }
+        //}
     }
 }

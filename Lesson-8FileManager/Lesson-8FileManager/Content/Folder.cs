@@ -9,7 +9,7 @@ namespace Lesson_8FileManager.Files
 {
     public class Folder:IContent
     {
-        public string Path { get; set; }
+        public string FolderPath { get; set; }
         public string Name { get; set; }
         public long Size { get; set; }
         public DateTime DataCreate { get; set; }
@@ -21,8 +21,8 @@ namespace Lesson_8FileManager.Files
         }
         public Folder(string path)
         {
-            Path = path;
-            DirectoryInfo directory = new DirectoryInfo(Path);
+            FolderPath = path;
+            DirectoryInfo directory = new DirectoryInfo(FolderPath);
             Name = directory.Name;
             DataCreate = directory.CreationTime;
             AddFile();
@@ -44,7 +44,7 @@ namespace Lesson_8FileManager.Files
         }
         public void AddFile()
         {
-            var a = Directory.GetFiles(Path);
+            var a = Directory.GetFiles(FolderPath);
             foreach(var file in a)
             {
                 ListFileModel.Add(new FileModel(file));
@@ -52,7 +52,7 @@ namespace Lesson_8FileManager.Files
         }
         public void AddFolder()
         {
-            var a = Directory.GetDirectories(Path);
+            var a = Directory.GetDirectories(FolderPath);
             foreach (var directory in a)
             {
                 ListFolderModel.Add(new Folder(directory));
@@ -60,7 +60,7 @@ namespace Lesson_8FileManager.Files
         }
         public void Delete()
         {
-            Directory.Delete(this.Path, true);
+            Directory.Delete(this.FolderPath, true);
         }
 
         public string GetName()
@@ -71,6 +71,13 @@ namespace Lesson_8FileManager.Files
         public DateTime GetDate()
         {
             return DataCreate;
+        }
+
+        public void Rename(string root_path,string name)
+        {
+            this.Name = name;
+            string NewPath = Path.Combine(root_path, name);
+            Directory.Move(FolderPath, NewPath);
         }
     }
 }
