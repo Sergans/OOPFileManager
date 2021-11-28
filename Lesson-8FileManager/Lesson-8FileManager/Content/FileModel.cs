@@ -47,7 +47,6 @@ namespace Lesson_8FileManager.Files
             string NewPath = Path.Combine(root_path, name+Extens);
             File.Move(FilePath, NewPath);
         }
-
         public string GetPath()
         {
             return FilePath;

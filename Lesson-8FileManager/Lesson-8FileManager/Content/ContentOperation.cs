@@ -54,9 +54,8 @@ namespace Lesson_8FileManager.Content
         }
         public void Rename(IContent item, string name)
         {
-            item.Rename(RootPath,name);
-            
-            
+            item.Rename(RootPath,name); 
         }
+        
     }
 }

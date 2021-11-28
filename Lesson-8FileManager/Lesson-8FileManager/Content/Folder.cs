@@ -74,7 +74,6 @@ namespace Lesson_8FileManager.Files
             Directory.Move(FolderPath, NewPath);
            
         }
-
         public string GetPath()
         {
             return FolderPath;
