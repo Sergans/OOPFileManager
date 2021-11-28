@@ -58,6 +58,19 @@ namespace Lesson_8FileManager.Files
                 ListFolderModel.Add(new Folder(directory));
             }
         }
-       
+        public void Delete()
+        {
+            Directory.Delete(this.Path, true);
+        }
+
+        public string GetName()
+        {
+            return Name;
+        }
+
+        public DateTime GetDate()
+        {
+            return DataCreate;
+        }
     }
 }

@@ -12,9 +12,10 @@ namespace Lesson_8FileManager
         //void Create();
         //void Get();
         //void Update();
-        //void Delete();
-       // string Name();
-        //long GetSize();
+        void Delete();
+        string GetName();
+        long GetSize();
+        DateTime GetDate();
 
 
     }

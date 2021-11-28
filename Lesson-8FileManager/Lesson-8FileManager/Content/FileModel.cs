@@ -22,5 +22,21 @@ namespace Lesson_8FileManager.Files
             DataCreate = file.CreationTime;
         }
 
+        public long GetSize()
+        {
+            return Size;
+        }
+        public void Delete()
+        {
+            File.Delete(this.Path);
+        }
+        public string GetName()
+        {
+            return Name;
+        }
+        public DateTime GetDate()
+        {
+            return DataCreate;
+        }
     }
 }
