@@ -72,6 +72,12 @@ namespace Lesson_8FileManager.Files
             this.Name = name;
             string NewPath = Path.Combine(root_path, name);
             Directory.Move(FolderPath, NewPath);
+           
+        }
+
+        public string GetPath()
+        {
+            return FolderPath;
         }
     }
 }

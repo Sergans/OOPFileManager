@@ -56,6 +56,7 @@ namespace Lesson_8FileManager.Content
         {
             item.Rename(RootPath,name);
             
+            
         }
     }
 }
