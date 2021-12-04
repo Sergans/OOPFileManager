@@ -88,6 +88,15 @@ namespace Lesson_8FileManager
                content.Open(Directory.GetParent(content.RootPath).ToString());
                 b = 0;
             }
+            if(ConsoleKey.F3 == kl)
+            {
+                string NewFolder = Console.ReadLine();
+                string NewPath;
+                NewPath = Path.Combine(content.RootPath, NewFolder);
+                content.Create(content.contents[b], NewFolder);
+                b = 0;
+
+            }
             if (ConsoleKey.F1 == kl)
             {
                
@@ -173,16 +182,7 @@ namespace Lesson_8FileManager
                     content.Rename(content.contents[b], NewFolder);
                     b = 0;
                 }
-                //else if (ConsoleKey.F3 == kl)
-                //{
-                //    string NewFolder = Console.ReadLine();
-                //    string NewPath;
-                //    NewPath = Path.Combine(content.RootPath, NewFolder);
-                //    FileInfo s = new FileInfo(NewPath);
-
-                //    content.Open(NewPath);
-                //    content.Open(Directory.GetParent(content.RootPath).ToString());
-                //}
+               
             }
             else
             {

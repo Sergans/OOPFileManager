@@ -56,6 +56,10 @@ namespace Lesson_8FileManager.Content
         {
             item.Rename(RootPath,name); 
         }
+        public void Create(IContent item, string name)
+        {
+            item.Create(RootPath, name);
+        }
         
     }
 }

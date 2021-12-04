@@ -78,5 +78,10 @@ namespace Lesson_8FileManager.Files
         {
             return FolderPath;
         }
+
+        public void Create(string root_path, string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
