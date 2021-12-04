@@ -31,7 +31,7 @@ namespace Lesson_8FileManager.Files
         }
         public void Delete()
         {
-            File.Delete(this.FilePath);
+            File.Delete(FilePath);
         }
         public string GetName()
         {

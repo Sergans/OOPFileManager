@@ -61,6 +61,13 @@ namespace Lesson_8FileManager.Content
             Directory.CreateDirectory(new_path);
             contents.Add(new Folder(new_path));
         }
+        public void CreateFileTxt(string new_path)
+        {
+            File.Create(new_path);
+            contents.Add(new FileModel(new_path));
+            
+
+        }
         
     }
 }

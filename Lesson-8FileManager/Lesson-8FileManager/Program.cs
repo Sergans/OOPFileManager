@@ -94,10 +94,18 @@ namespace Lesson_8FileManager
                 string NewPath;
                 NewPath = Path.Combine(content.RootPath, NewContent);
                 content.CreateFolder(NewPath);
-                //content.Open(content.RootPath);
                 b = 0;
-
             }
+            if(ConsoleKey.F4 == kl) //создать текстовый файл
+            {
+                string NewContent = Console.ReadLine();
+                string NewPath;
+                NewPath = Path.Combine(content.RootPath, NewContent+".txt");
+                content.CreateFileTxt(NewPath);
+                
+                b = 0;
+            }
+                   
             if (ConsoleKey.F1 == kl)
             {
                
