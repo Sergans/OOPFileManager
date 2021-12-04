@@ -88,12 +88,13 @@ namespace Lesson_8FileManager
                content.Open(Directory.GetParent(content.RootPath).ToString());
                 b = 0;
             }
-            if(ConsoleKey.F3 == kl)
+            if(ConsoleKey.F3 == kl)//создать папку
             {
-                string NewFolder = Console.ReadLine();
+                string NewContent = Console.ReadLine();
                 string NewPath;
-                NewPath = Path.Combine(content.RootPath, NewFolder);
-                content.Create(content.contents[b], NewFolder);
+                NewPath = Path.Combine(content.RootPath, NewContent);
+                content.CreateFolder(NewPath);
+                //content.Open(content.RootPath);
                 b = 0;
 
             }

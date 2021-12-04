@@ -53,10 +53,10 @@ namespace Lesson_8FileManager.Files
             return FilePath;
         }
 
-        public void Create(string root_path, string name)
+        public void Create(string root_path)
         {
-            string NewPath = Path.Combine(root_path, name + Extens);
-            File.Create(NewPath);
+            //string NewPath = Path.Combine(root_path, name + Extens);
+            File.Create(root_path);
             throw new NotImplementedException();
         }
     }
