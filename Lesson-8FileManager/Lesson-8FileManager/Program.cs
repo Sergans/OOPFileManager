@@ -105,7 +105,7 @@ namespace Lesson_8FileManager
                 
                 b = 0;
             }
-                   
+                  
             if (ConsoleKey.F1 == kl)
             {
                
@@ -203,14 +203,8 @@ namespace Lesson_8FileManager
         }
         static void Main(string[] args)
         {
-            
-            ContentOperation content = new ContentOperation();
-            //content.Open(@"C:\Users\GANS\Desktop\Catalog\");
-            //var a = content.contents[4];
-            // content.Delete(a);
-           // content.Rename(a, "Catalog40");
-           // content.ContentList.Add(new Folder(@"C:\Users\GANS\Desktop\Catalog\"));
-            Print(content.Open(@"C:\Users\GANS\Desktop\Catalog\"));
+           ContentOperation content = new ContentOperation();
+           Print(content.Open(@"C:\Users\GANS\Desktop\Catalog\"));
             while (true)
             {
                 var c = SelectUpDown(content);

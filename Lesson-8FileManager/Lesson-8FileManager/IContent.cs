@@ -9,9 +9,6 @@ namespace Lesson_8FileManager
 {
     public interface IContent
     {
-        //void Create();
-        //void Get();
-        //void Update();
         void Delete();
         string GetName();
         long GetSize();
