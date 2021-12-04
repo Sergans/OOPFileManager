@@ -79,10 +79,5 @@ namespace Lesson_8FileManager.Files
             return FolderPath;
         }
 
-        public void Create(string root_path)
-        {
-            Directory.CreateDirectory(root_path);
-           
-        }
     }
 }
