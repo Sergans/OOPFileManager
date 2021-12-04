@@ -31,7 +31,16 @@ namespace Lesson_8FileManager.Files
         }
         public void Delete()
         {
-            File.Delete(FilePath);
+            try
+            {
+                File.Delete(FilePath);
+            }
+            catch
+            {
+                Console.WriteLine("Падаем");
+               
+            }
+            
         }
         public string GetName()
         {

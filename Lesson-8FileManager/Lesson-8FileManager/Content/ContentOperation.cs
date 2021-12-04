@@ -63,8 +63,9 @@ namespace Lesson_8FileManager.Content
         }
         public void CreateFileTxt(string new_path)
         {
-            File.Create(new_path);
+            File.Create(new_path).Close();
             contents.Add(new FileModel(new_path));
+
             
 
         }
