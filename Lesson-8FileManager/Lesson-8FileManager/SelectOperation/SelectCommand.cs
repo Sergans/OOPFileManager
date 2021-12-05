@@ -10,7 +10,7 @@ using System.IO;
 namespace Lesson_8FileManager.SelectOperation
 {
    public class SelectCommand
-    {
+   {
         int b=0;
         public IContent Select(ContentOperation content,ConsoleKey _button)
         {
@@ -79,9 +79,7 @@ namespace Lesson_8FileManager.SelectOperation
                 b = 0;
                 return null;
             }
-
             return content.contents[b];
         }
-
-}
+   }
 }

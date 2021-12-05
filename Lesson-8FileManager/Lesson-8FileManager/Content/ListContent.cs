@@ -11,6 +11,5 @@ namespace Lesson_8FileManager.Content
    public class ListContent<T>
    {
      public List<T> ContentList = new List<T>();
-       
    }
 }
