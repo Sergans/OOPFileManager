@@ -4,14 +4,13 @@ using Lesson_8FileManager;
 using Lesson_8FileManager.Files;
 using Lesson_8FileManager.Content;
 using System.Collections.Generic;
+using Lesson_8FileManager.SelectOperation;
 
 
 namespace Lesson_8FileManager
 {
     class Program
     {  
-       static int b=0;
-        static int c = 0;
         public static void Print(ContentOperation content)
         {
             if (content.contents.Count == 0)
@@ -80,135 +79,15 @@ namespace Lesson_8FileManager
 
         }
 
-        public static IContent SelectUpDown(ContentOperation content)
-        {
-            var kl = Console.ReadKey().Key;
-            if (ConsoleKey.LeftArrow == kl)
-            {
-               content.Open(Directory.GetParent(content.RootPath).ToString());
-                b = 0;
-            }
-            if(ConsoleKey.F3 == kl)//создать папку
-            {
-                string NewContent = Console.ReadLine();
-                string NewPath;
-                NewPath = Path.Combine(content.RootPath, NewContent);
-                content.CreateFolder(NewPath);
-                b = 0;
-            }
-            if(ConsoleKey.F4 == kl) //создать текстовый файл
-            {
-                string NewContent = Console.ReadLine();
-                string NewPath;
-                NewPath = Path.Combine(content.RootPath, NewContent+".txt");
-                content.CreateFileTxt(NewPath);
-                
-                b = 0;
-            }
-                  
-            if (ConsoleKey.F1 == kl)
-            {
-               
-                string NewFolder = Console.ReadLine();
-                //string NewPath;
-                if (NewFolder == "")
-                {
-                    NewFolder = "Новая папка";
-                    string NewPath = Path.Combine(content.RootPath, NewFolder);
-                    if (Directory.Exists(NewPath))
-                    {
-                       
-                        NewFolder = NewFolder + 1;
-                        NewPath = Path.Combine(content.RootPath, NewFolder);
-                        Directory.CreateDirectory(NewPath);
-                        content.Open(NewPath);
-                        content.Open(Directory.GetParent(content.RootPath).ToString());
-                    }
-                    else
-                    {
-                        Directory.CreateDirectory(NewPath);
-                        content.Open(NewPath);
-                        content.Open(Directory.GetParent(content.RootPath).ToString());
-                    }
-
-                }
-                else
-                {
-                   string NewPath = Path.Combine(content.RootPath, NewFolder);
-                    if (Directory.Exists(NewPath))
-                    {
-                        Console.Clear();
-                        NewFolder = NewFolder + 1;
-                        NewPath = Path.Combine(content.RootPath, NewFolder);
-                        Directory.CreateDirectory(NewPath);
-                        content.Open(NewPath);
-                        content.Open(Directory.GetParent(content.RootPath).ToString());
-
-                    }
-                    else
-                    {
-                        Directory.CreateDirectory(NewPath);
-                        content.Open(NewPath);
-                        content.Open(Directory.GetParent(content.RootPath).ToString());
-                    }
-
-                }
-
-            }
-            if (content.contents.Count != 0)
-            {
-                if (ConsoleKey.DownArrow == kl && b < (content.contents.Count - 1))
-                {
-                    return content.contents[++b];
-                }
-                else if (ConsoleKey.UpArrow == kl && b <= content.contents.Count - 1 && b > 0)
-                {
-                    return content.contents[--b];
-                }
-                else if (ConsoleKey.Delete == kl)
-                {
-                    content.Delete(content.contents[b]);
-                    if (content.contents.Count == 0)
-                    {
-                        b = 0;
-                        return null;
-                    }
-                    b = 0;
-                }
-                else if (ConsoleKey.RightArrow == kl)
-                {
-                    content.Open(content.contents[b].GetPath());
-                    if (content.contents.Count == 0)
-                    {
-                        b = 0;
-                        return null;
-                    }
-                    b = 0;
-                }
-                else if (ConsoleKey.F2 == kl)
-                {
-                    string NewFolder = Console.ReadLine();
-                    content.Rename(content.contents[b], NewFolder);
-                    b = 0;
-                }
-               
-            }
-            else
-            {
-                b = 0;
-                return null;
-            }
-
-            return content.contents[b];
-        }
         static void Main(string[] args)
         {
            ContentOperation content = new ContentOperation();
+           SelectCommand operation = new SelectCommand();
            Print(content.Open(@"C:\Users\GANS\Desktop\Catalog\"));
             while (true)
             {
-                var c = SelectUpDown(content);
-                Print(content, c);
+                var button = Console.ReadKey().Key;
+                Print(content, operation.Select(content, button));
             }
 
         }
