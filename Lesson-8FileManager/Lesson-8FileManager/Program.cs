@@ -13,6 +13,7 @@ namespace Lesson_8FileManager
     {  
         public static void Print(ContentOperation content)
         {
+            DriveInfo disk = new DriveInfo("C");
             if (content.contents.Count == 0)
             {
                 Console.WriteLine("Эта папка пуста");
@@ -22,7 +23,7 @@ namespace Lesson_8FileManager
                 if (i == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write($"{content.contents[i].GetName()} ");
+                    Console.Write($"{content.contents[i].GetName()} {disk.Name} ");
                     Console.Write($"{content.contents[i].GetSize()} ");
                     Console.Write($"{content.contents[i].GetDate()} ");
                     Console.WriteLine();
@@ -81,6 +82,8 @@ namespace Lesson_8FileManager
 
         static void Main(string[] args)
         {
+            DriveInfo disk =new DriveInfo("C");
+
            ContentOperation content = new ContentOperation();
            SelectCommand operation = new SelectCommand();
            Print(content.Open(@"C:\Users\GANS\Desktop\Catalog\"));
