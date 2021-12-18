@@ -83,10 +83,10 @@ namespace Lesson_8FileManager
         static void Main(string[] args)
         {
             DriveInfo disk =new DriveInfo("C");
-
+        // var a=  Directory.GetFiles(@"C:\Users\GANS\");
            ContentOperation content = new ContentOperation();
            SelectCommand operation = new SelectCommand();
-           Print(content.Open(@"C:\Users\GANS\Desktop\Catalog\"));
+           Print(content.Open(@"C:\"));
             while (true)
             {
                 var button = Console.ReadKey().Key;

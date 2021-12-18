@@ -41,18 +41,33 @@ namespace Lesson_8FileManager.Files
         }
         public void AddFile()
         {
-            var a = Directory.GetFiles(FolderPath);
-            foreach(var file in a)
+            try
             {
-                ListFileModel.Add(new FileModel(file));
+                var a = Directory.GetFiles(FolderPath);
+                foreach (var file in a)
+                {
+                    ListFileModel.Add(new FileModel(file));
+                }
+            }
+            catch
+            {
+
             }
         }
         public void AddFolder()
         {
-            var a = Directory.GetDirectories(FolderPath);
-            foreach (var directory in a)
+            try
             {
-                ListFolderModel.Add(new Folder(directory));
+                var a = Directory.GetDirectories(FolderPath);
+                foreach (var directory in a)
+                {
+                    ListFolderModel.Add(new Folder(directory));
+                }
+
+            }
+            catch
+            {
+
             }
         }
         public void Delete()
