@@ -61,6 +61,12 @@ namespace Lesson_8FileManager.Files
         {
             return FilePath;
         }
+        public string Copy(string root_path,string file_name)
+        {
+            string new_file = Path.Combine(root_path, file_name + Extens);
+            File.Copy(FilePath, new_file);
+            return new_file;
+        }
 
     }
 }

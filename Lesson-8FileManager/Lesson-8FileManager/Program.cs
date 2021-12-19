@@ -86,7 +86,7 @@ namespace Lesson_8FileManager
           // var a=  Directory.GetFiles(@"C:\Program Files (x86)");
            ContentOperation content = new ContentOperation();
            SelectCommand operation = new SelectCommand();
-           Print(content.Open(@"C:\Program Files (x86)"));
+           Print(content.Open(@"C:\Users\GANS\Desktop\Catalog"));
             while (true)
             {
                 var button = Console.ReadKey().Key;

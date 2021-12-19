@@ -65,9 +65,12 @@ namespace Lesson_8FileManager.Content
         {
             File.Create(new_path).Close();
             contents.Add(new FileModel(new_path));
-
+        }
+        public void Copy(IContent item,string name)
+        {
+           string new_file= item.Copy(RootPath,name);
+            contents.Add(new FileModel(new_file));
             
-
         }
         
     }

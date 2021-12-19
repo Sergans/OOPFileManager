@@ -72,6 +72,12 @@ namespace Lesson_8FileManager.SelectOperation
                     content.Rename(content.contents[b], NewFolder);
                     b = 0;
                 }
+                else if (ConsoleKey.F5 == _button)
+                {
+                    string new_file = Console.ReadLine();
+                    content.Copy(content.contents[b], new_file);
+                    b = 0;
+                }
 
             }
             else

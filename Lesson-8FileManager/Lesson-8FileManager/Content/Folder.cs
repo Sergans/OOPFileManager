@@ -95,5 +95,9 @@ namespace Lesson_8FileManager.Files
             return FolderPath;
         }
 
+        public string Copy(string root_path,string file_name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
