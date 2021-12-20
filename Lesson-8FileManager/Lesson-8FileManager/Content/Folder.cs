@@ -95,9 +95,31 @@ namespace Lesson_8FileManager.Files
             return FolderPath;
         }
 
-        public IContent Copy(string root_path,string file_name)
-        {
-            throw new NotImplementedException();
+        public IContent Copy(string root_path,string folder_name)
+        { 
+            DirectoryInfo dir = new DirectoryInfo(root_path);
+            string folder1;
+            string file1;
+            string destFile;
+            string NewPath = Path.Combine(root_path, folder_name);
+            Directory.CreateDirectory(NewPath);
+            
+            string[] files = Directory.GetFiles(root_path);
+            var folder = dir.GetDirectories();
+            foreach(var f in folder)
+            {
+                string new_path = Path.Combine(NewPath, f.Name);
+                Directory.CreateDirectory(new_path);
+               
+            }
+            foreach(var s in files)
+            {
+                file1 = Path.GetFileName(s);
+                destFile = Path.Combine(NewPath, file1);
+                File.Copy(s, destFile, true);
+            }
+           
+            return (new Folder(NewPath));
         }
     }
 }
