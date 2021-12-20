@@ -15,6 +15,6 @@ namespace Lesson_8FileManager
         DateTime GetDate();
         void Rename(string root_path,string name);
         string GetPath();
-        string Copy(string root_path,string file_name);
+        IContent Copy(string root_path,string file_name);
     }
 }
