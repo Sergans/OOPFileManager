@@ -96,21 +96,22 @@ namespace Lesson_8FileManager.Files
         }
 
         public IContent Copy(string root_path,string folder_name)
-        { 
+        {
+            
             DirectoryInfo dir = new DirectoryInfo(root_path);
-            string folder1;
+           
             string file1;
             string destFile;
             string NewPath = Path.Combine(root_path, folder_name);
             Directory.CreateDirectory(NewPath);
             
-            string[] files = Directory.GetFiles(root_path);
+            string[] files = Directory.GetFiles(FolderPath);
             var folder = dir.GetDirectories();
             foreach(var f in folder)
             {
                 string new_path = Path.Combine(NewPath, f.Name);
                 Directory.CreateDirectory(new_path);
-               
+                Copy(NewPath, f.Name);
             }
             foreach(var s in files)
             {
@@ -118,7 +119,7 @@ namespace Lesson_8FileManager.Files
                 destFile = Path.Combine(NewPath, file1);
                 File.Copy(s, destFile, true);
             }
-           
+            
             return (new Folder(NewPath));
         }
     }
