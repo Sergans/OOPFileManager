@@ -103,7 +103,7 @@ namespace Lesson_8FileManager.Files
             string file1;
             string destFile;
             string NewPath = Path.Combine(dir.Parent.ToString(), folder_name);
-            //Directory.CreateDirectory(NewPath);
+            Directory.CreateDirectory(NewPath);
             
             string[] files = Directory.GetFiles(root_path);
             var folder = dir.GetDirectories();
@@ -111,7 +111,7 @@ namespace Lesson_8FileManager.Files
             {
                 string new_path = Path.Combine(NewPath, f.Name);
                 Directory.CreateDirectory(new_path);
-                Copy(NewPath, f.Name);
+                Copy(f.FullName, f.Name);
             }
             foreach(var s in files)
             {
