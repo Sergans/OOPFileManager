@@ -102,10 +102,10 @@ namespace Lesson_8FileManager.Files
            
             string file1;
             string destFile;
-            string NewPath = Path.Combine(root_path, folder_name);
-            Directory.CreateDirectory(NewPath);
+            string NewPath = Path.Combine(dir.Parent.ToString(), folder_name);
+            //Directory.CreateDirectory(NewPath);
             
-            string[] files = Directory.GetFiles(FolderPath);
+            string[] files = Directory.GetFiles(root_path);
             var folder = dir.GetDirectories();
             foreach(var f in folder)
             {

@@ -68,9 +68,9 @@ namespace Lesson_8FileManager.Content
         }
         public void Copy(IContent item,string name)
         {
-            var _item = item.GetPath();
+           var _item = item.GetPath();
            IContent content= item.Copy(_item,name);
-            contents.Add(content);
+           contents.Add(content);
             
         }
         
