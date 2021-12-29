@@ -95,29 +95,35 @@ namespace Lesson_8FileManager.Files
             return FolderPath;
         }
 
-        public IContent Copy(string root_path,string folder_name)
+        public IContent Copy(string copy_path,string folder_name)
         {
             
-            DirectoryInfo dir = new DirectoryInfo(root_path);
+            DirectoryInfo dir = new DirectoryInfo(copy_path);
            
-            string file1;
-            string destFile;
+            
             string NewPath = Path.Combine(dir.Parent.ToString(), folder_name);
             Directory.CreateDirectory(NewPath);
-            
-            string[] files = Directory.GetFiles(root_path);
-            var folder = dir.GetDirectories();
-            foreach(var f in folder)
+
+            string[] files = Directory.GetFiles(copy_path);
+            var folders = dir.GetDirectories();
+            if (folders.Length == 0&&files.Length==0)
             {
-                string new_path = Path.Combine(NewPath, f.Name);
-                Directory.CreateDirectory(new_path);
-                Copy(f.FullName, f.Name);
+                
+                return (new Folder(NewPath));
             }
-            foreach(var s in files)
+
+            foreach(var folder in folders)
             {
-                file1 = Path.GetFileName(s);
-                destFile = Path.Combine(NewPath, file1);
-                File.Copy(s, destFile, true);
+                string new_path = Path.Combine(NewPath, folder.Name);
+                //Directory.CreateDirectory(new_path);
+                Copy(new_path, folder.Name);
+            }
+            foreach(var file in files)
+            {
+                
+               string file_name = Path.GetFileName(file);
+               string destFile = Path.Combine(NewPath, file_name);
+               File.Copy(file, destFile, true);
             }
             
             return (new Folder(NewPath));
