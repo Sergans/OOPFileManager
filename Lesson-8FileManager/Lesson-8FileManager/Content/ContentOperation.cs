@@ -69,7 +69,7 @@ namespace Lesson_8FileManager.Content
         public void Copy(IContent item,string name)
         {
            var _item = item.GetPath();
-           IContent content= item.Copy(_item,name);
+           IContent content= item.Copy(_item,RootPath,name);
            contents.Add(content);
             
         }

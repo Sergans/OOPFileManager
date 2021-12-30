@@ -61,11 +61,9 @@ namespace Lesson_8FileManager.Files
         {
             return FilePath;
         }
-        public IContent Copy(string path,string file_name)
+        public IContent Copy(string copy_path,string to_path,string file_name)
         {
-
-            var file = Directory.GetParent(path);
-            string new_file = Path.Combine(file.FullName, file_name + Extens);
+            string new_file = Path.Combine(to_path, file_name + Extens);
             File.Copy(FilePath, new_file);
             return(new FileModel(new_file));
         }
