@@ -94,7 +94,6 @@ namespace Lesson_8FileManager.Files
         {
             return FolderPath;
         }
-
         public IContent Copy(string copy_path,string to_path,string new_folder_name)
         {
             DirectoryInfo dir = new DirectoryInfo(copy_path);
@@ -114,7 +113,6 @@ namespace Lesson_8FileManager.Files
                     File.Copy(file, destFile, true);
                 }
             
-
             return (new Folder(NewPath));
         }
         
